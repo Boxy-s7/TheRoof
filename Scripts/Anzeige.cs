@@ -5,15 +5,24 @@ using TMPro;
 public class Anzeige : MonoBehaviour
 {
     private Store store;
+    public Register register;
+    
     
     public TMP_InputField textMeshTaler;
     public TMP_InputField textMeshStein;
+    public TMP_Text textMeshMission;
 
     void Start()
     {
         store = GameStore.Get();
+        register = GameRegister.Get();
+        textMeshMission.text = MissionFinder();
+        register.anzeige = this;
     }
-
+    public void missionUpdate()
+    {
+        textMeshMission.text = "Mission to Level Up:" + MissionFinder() + store.hero.progress + "/";
+    }
     void Update()
     {
         if (store == null) return;
@@ -44,5 +53,26 @@ public class Anzeige : MonoBehaviour
             store.hero.level += 1;
             store.hero.taler -= kosten;
         }
+    }
+    string[] missionTabelle = new string[]
+    {
+        " ",
+        "Collect 30 stones with your net",
+        "Let 10 stones bounce on your plank",
+        "Collect 10 stones with your buckets",
+        "Collect 30 stones with your zombie",
+        "Collect 100 stones with your drone",
+        " ",
+        " ",
+        " ",
+        " ",
+        " "
+    };
+    public string MissionFinder()
+    {
+        Debug.Log(register.levelManager);
+        LevelEntry entry = register.levelManager.solls[this.store.hero.level];
+        return register.levelManager.discriptDict[entry.name].Replace("#", entry.soll.ToString());
+
     }
 }

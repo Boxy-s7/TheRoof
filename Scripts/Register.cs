@@ -5,6 +5,7 @@ using JetBrains.Annotations;
 [System.Serializable]
 public class Register
 {
+    public Anzeige anzeige;
     public MarketScript market;
     public NetScript net;
     public playerScript player;

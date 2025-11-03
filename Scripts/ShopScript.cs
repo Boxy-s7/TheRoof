@@ -195,10 +195,7 @@ public class ShopScript : MonoBehaviour
             }
         }
     }
-    static string[] heroBeschreibungsTabelle = new string[]
-    {
-        "Collect 30 stones with your net"
-    };
+    
         public void BuyNet(int level)
     {
 

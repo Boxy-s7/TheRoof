@@ -136,7 +136,7 @@ public class BrettScript : ItemScript
     public void OnCollisionEnter2D(Collision2D collision)
     {
         {
-            this.register.levelManager.LevelCheckUp("brett");
+            register.levelManager.LevelCheckUp("brett");
         }
     }
 }
