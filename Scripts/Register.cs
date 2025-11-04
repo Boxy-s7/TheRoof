@@ -20,6 +20,8 @@ public class Register
     public List<BrettScript> bretters;
     public List<EimerScript> eimers;
     public RegisterDrone drone;
+    public BirdScript bird;
+    public NestScript nest;
     public Register()
     {
         this.bretters = new List<BrettScript>();

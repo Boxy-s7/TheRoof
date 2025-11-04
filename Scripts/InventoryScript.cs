@@ -15,6 +15,7 @@ public class InventoryScript : MonoBehaviour
     public GameObject EimerPrefab;
     public GameObject ZombiePrefab;
     public GameObject DronenPrefab;
+    public GameObject NestPrefab;
     public float floorY;
     public int clicked;
     public TMP_InputField textMeshInventoryStats1;
@@ -232,7 +233,51 @@ public class InventoryScript : MonoBehaviour
 
 
     }
+    public void BuyBird()
+    {
+        NestLevelStats current = LevelStats.nest[this.store.inventory.nest.nestLevel];
+        NestLevelStats next = LevelStats.nest[this.store.inventory.nest.nestLevel + 1];
+        if (clicked == 5)
+        {
+            clicked = 0;
+            statsPanelInventory.SetActive(false);
+            if (LevelStats.nest[this.store.inventory.nest.nestLevel].price > this.store.hero.taler)
+            {
+                Debug.Log("zu wenig Geld! ");
+            }
+            else if (this.store.inventory.nest.nestLevel >= this.store.hero.level - 4)
+            {
+                Debug.Log("zu wenig Hero level! ");
+            }
 
+
+            else
+            {
+                this.store.inventory.nest.nestLevel++;
+                this.store.hero.taler -= next.price;
+                this.store.inventory.nest.scent = next.scent;
+                this.store.inventory.nest.taste = next.taste;
+                if (this.store.inventory.nest.nestLevel == 1)
+                {
+                    var p = Instantiate(NestPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                    
+
+                    
+                }
+                
+            }
+        }
+        else
+        {
+            clicked = 5;
+            statsPanelInventory.SetActive(true);
+            textMeshInventoryStats1.text = $"A nest that attracts birds that if hit drop eggs";
+            textMeshInventoryStats2.text = $"next level price: {next.price}";
+            textMeshInventoryStats3.text = $"current level: {current.level}";
+        }
+
+
+    }
     
 
 

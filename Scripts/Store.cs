@@ -25,6 +25,7 @@ public class Store
         this.inventory.eimers = new Eimers(0, 0, 0);
         this.inventory.zombie = new Zombie();
         this.inventory.drone = new Drone();
+        this.inventory.nest = new Nest();
     }
 }
 
@@ -83,7 +84,7 @@ public class Inventory
     public Eimers eimers;
     public Zombie zombie;
     public Drone drone;
-
+    public Nest nest;
 
 
 }
@@ -158,4 +159,11 @@ public class Drone
     public int maxSteinmenge;
     public float speed;
     public int smartnis;
+}
+[System.Serializable]
+public class Nest
+{
+    public int nestLevel;
+    public float taste;
+    public int scent;
 }

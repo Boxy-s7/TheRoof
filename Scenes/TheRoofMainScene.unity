@@ -3350,6 +3350,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
   textMeshTaler: {fileID: 308580356}
   textMeshStein: {fileID: 866126000}
   textMeshMission: {fileID: 1610838300}
@@ -9001,6 +9003,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
 --- !u!114 &729211487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16807,6 +16813,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305728516}
   m_CullTransparentMesh: 1
+--- !u!1 &1306444768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+  m_PrefabInstance: {fileID: 7613374051953866761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1306444769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306444768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8af01e5cefbb71479a056150aaae4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nestPos: {x: 0, y: 0, z: 0}
+  register:
+    anzeige: {fileID: 0}
+    market: {fileID: 0}
+    net: {fileID: 0}
+    player: {fileID: 0}
+    shopButtons: {fileID: 0}
+    shop: {fileID: 0}
+    inventory: {fileID: 0}
+    gameStoreManager: {fileID: 0}
+    zombie: {fileID: 0}
+    ZombieNet: {fileID: 0}
+    levelManager: {fileID: 0}
+    bretters: []
+    eimers: []
+    drone:
+      drone: {fileID: 0}
+      dronenBody: {fileID: 0}
+      dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
+  prefabToSpawn: {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  spawnPoint: {fileID: 0}
+  nextSpawn: 0
+  SpawnCooldown: 2
+  birds:
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
+  store:
+    hero:
+      taler: 0
+      level: 0
+      progress: 0
+    stone:
+      talerProStein: 0
+      level: 0
+    net:
+      steinmenge: 0
+      maxSteinmenge: 0
+      level: 0
+    inventory:
+      bretters: []
+      eimers:
+        level: 0
+        count: 0
+        size: 0
+        eimers: []
+      zombie:
+        zombieLevel: 0
+      drone:
+        dronenLevel: 0
+        maxSteinmenge: 0
+        speed: 0
+        smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
+  factor: 1
 --- !u!1 &1307960700
 GameObject:
   m_ObjectHideFlags: 0
@@ -19180,6 +19267,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   storeLoaded: 0
   register:
     anzeige: {fileID: 0}
@@ -19199,6 +19290,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
 --- !u!4 &1528161008
 Transform:
   m_ObjectHideFlags: 0
@@ -19283,6 +19376,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   register:
     anzeige: {fileID: 0}
     market: {fileID: 0}
@@ -19301,6 +19398,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
   BrettPrefab: {fileID: 5189123523840907092, guid: 2eb3cdaf550a82b4287d7b39ff253893, type: 3}
   EimerPrefab: {fileID: 1625414464220674616, guid: 00f664f419336f04e81991ae7593a3fc, type: 3}
   ZombiePrefab: {fileID: 5249271735520522970, guid: bf01634c9a2e1a147a361cf135e5b958, type: 3}
@@ -20031,6 +20130,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
   textMeshTaler: {fileID: 0}
   textMeshStein: {fileID: 0}
   textMeshMission: {fileID: 0}
@@ -20128,6 +20229,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   storeLoaded: 0
   register:
     anzeige: {fileID: 0}
@@ -20147,6 +20252,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
 --- !u!114 &1604052206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22320,6 +22427,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   register:
     anzeige: {fileID: 0}
     market: {fileID: 0}
@@ -22338,6 +22449,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
 --- !u!1 &1808166630
 GameObject:
   m_ObjectHideFlags: 0
@@ -23378,6 +23491,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   factor: 1
 --- !u!1 &1927558002
 GameObject:
@@ -27417,7 +27534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2143377209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27534,6 +27651,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   register:
     anzeige: {fileID: 0}
     market: {fileID: 0}
@@ -27552,6 +27673,8 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
   StatPanelHero: {fileID: 1612396187}
   StatPanelNet: {fileID: 1952034835}
   StatPanelStone: {fileID: 1793660464}
@@ -27602,6 +27725,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   heroBackgrounds:
   - {fileID: 1559081438}
   - {fileID: 2020992196}
@@ -27674,6 +27801,10 @@ MonoBehaviour:
         maxSteinmenge: 0
         speed: 0
         smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   register:
     anzeige: {fileID: 0}
     market: {fileID: 0}
@@ -27692,10 +27823,13 @@ MonoBehaviour:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
   BrettPrefab: {fileID: 5189123523840907092, guid: 2eb3cdaf550a82b4287d7b39ff253893, type: 3}
   EimerPrefab: {fileID: 1625414464220674616, guid: 00f664f419336f04e81991ae7593a3fc, type: 3}
   ZombiePrefab: {fileID: 5249271735520522970, guid: bf01634c9a2e1a147a361cf135e5b958, type: 3}
   DronenPrefab: {fileID: 8255050587222464283, guid: 644d62f23653c3f4ba244d0621f12dd2, type: 3}
+  NestPrefab: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
   floorY: -4.54
   clicked: 0
   textMeshInventoryStats1: {fileID: 1484193567}
@@ -27785,6 +27919,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6266375586498143947, guid: 96c1bcc625591de418d9015b828980a3, type: 3}
   m_PrefabInstance: {fileID: 891100314484482007}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7613374051953866761
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_Name
+      value: Nest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749369162838492666, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: -6500437464017040406, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1306444769}
+  m_SourcePrefab: {fileID: 100100000, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -27795,3 +27990,4 @@ SceneRoots:
   - {fileID: 862112865}
   - {fileID: 419206606}
   - {fileID: 2100325195}
+  - {fileID: 7613374051953866761}

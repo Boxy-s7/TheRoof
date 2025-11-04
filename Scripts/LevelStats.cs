@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class LevelStats
 {
+    public Store store;
 
     public static Dictionary<int, HeroLevelStats> hero;
     public static Dictionary<int, StoneLevelStats> stone;
@@ -15,6 +16,7 @@ public class LevelStats
     public static Dictionary<int, EimerLevelStats> eimer;
     public static Dictionary<int, ZombieLevelStats> zombie;
     public static Dictionary<int, DroneLevelStats> drone;
+    public static Dictionary<int, NestLevelStats> nest;
     public static void Init()
     {
 
@@ -59,6 +61,11 @@ public class LevelStats
         {
             drone.Add(i, new DroneLevelStats(i, (int)Math.Pow(i, 4) * 40, droneSpeedFactor[i], droneNetFactor[i], dronenSmartnisFactor[i]));
         }
+        nest = new Dictionary<int, NestLevelStats>();
+        for (int i = 0; i < 9; i++)
+        {
+            nest.Add(i, new NestLevelStats(i, (int)Math.Pow(i, 4) * 50, nestTasteFactor[i], nestScentFactor[i], i));
+        }
     }
 
     static float[] talerProSteinFactor = new float[]
@@ -92,6 +99,14 @@ public class LevelStats
     static int[] eimerCountTabelle = new int[]
     {
         0, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 0
+    };
+    static int[] nestScentFactor = new int[]
+    {
+        0, 1, 1, 2, 2, 3, 3, 3, 0
+    };
+    static float[] nestTasteFactor = new float[]
+    {
+        0f, 1f, 1f, 2f, 2f, 3f, 3f, 3f, 0f
     };
 }
 
@@ -206,5 +221,22 @@ public class DroneLevelStats
         this.dronenNet = dronenNet;
         this.smartnis = smartnis;
 
+    }
+}
+[System.Serializable]
+public class NestLevelStats
+{
+    public int level;
+    public int price;
+    public float taste;
+    public int scent;
+    public int bird;
+    public NestLevelStats(int level, int price, float taste, int scent, int bird)
+    {
+        this.taste = taste;
+        this.level = level;
+        this.price = price;
+        this.scent = scent;
+        this.bird = bird;
     }
 }
