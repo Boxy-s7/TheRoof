@@ -7,6 +7,7 @@ using Unity.Collections.LowLevel.Unsafe;
 [System.Serializable]
 public class Store
 {
+    public StoreSettings storeSettings;
     public Hero hero;
     public Market market;
     public Stone stone;
@@ -17,6 +18,7 @@ public class Store
     // Weitere Felder nach Bedarf
     public Store()
     {
+        this.storeSettings = new StoreSettings();
         this.hero = new Hero();
         this.net = new Net();
         this.stone = new Stone();
@@ -29,6 +31,16 @@ public class Store
     }
 }
 
+[System.Serializable]
+public class StoreSettings
+{
+    public float effectVolume;
+    public float musicVolume;
+    public float screenSize;
+
+
+
+}
 
 [System.Serializable]
 public class Hero
@@ -166,4 +178,8 @@ public class Nest
     public int nestLevel;
     public int taste;
     public int scent;
+    public int bird;
+    public float positionX;
+    public float positionY;
 }
+

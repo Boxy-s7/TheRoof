@@ -18,9 +18,7 @@ public class Ground : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    
-        if (collision.gameObject.CompareTag("Stone" || collision.gameObject.CompareTag("Egg")))
+        if (collision.gameObject.CompareTag("Stone") || collision.gameObject.CompareTag("Egg"))
         {
             Destroy(collision.gameObject);
         }

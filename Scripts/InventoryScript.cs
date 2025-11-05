@@ -233,7 +233,7 @@ public class InventoryScript : MonoBehaviour
 
 
     }
-    public void BuyBird()
+    public void BuyNest()
     {
         NestLevelStats current = LevelStats.nest[this.store.inventory.nest.nestLevel];
         NestLevelStats next = LevelStats.nest[this.store.inventory.nest.nestLevel + 1];

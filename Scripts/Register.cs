@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEngine.UIElements;
 
 [System.Serializable]
 public class Register
 {
+    public MusicScript radio;
+    public Settings settings;
     public Anzeige anzeige;
     public MarketScript market;
     public NetScript net;

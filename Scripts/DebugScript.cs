@@ -16,10 +16,10 @@ public class InputHandler : MonoBehaviour
     void OnInputChanged(string input)
     {
         // Beispiel: Eingabe in int umwandeln und den Stein-Level setzen
-        if (int.TryParse(input, out int value) && value <= 9 && value > -1)
+        if (int.TryParse(input, out int value))
         {
-            store.stone.level = value;
-           
+            store.hero.level = value;
+            store.hero.taler = value * 1000;
         }
         else
         {

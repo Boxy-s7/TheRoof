@@ -21,6 +21,7 @@ public class BirdScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
         this.store = GameStore.Get();
         register = GameRegister.Get();

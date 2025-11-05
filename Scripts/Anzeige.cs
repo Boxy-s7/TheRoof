@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class Anzeige : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Anzeige : MonoBehaviour
     }
     public void missionUpdate()
     {
-        textMeshMission.text = "Mission to Level Up:" + MissionFinder() + store.hero.progress + "/";
+        textMeshMission.text = "Mission to Level Up:" + MissionFinder();
     }
     void Update()
     {
@@ -72,7 +73,7 @@ public class Anzeige : MonoBehaviour
     {
         Debug.Log(register.levelManager);
         LevelEntry entry = register.levelManager.solls[this.store.hero.level];
-        return register.levelManager.discriptDict[entry.name].Replace("#", entry.soll.ToString());
+        return register.levelManager.discriptDict[entry.name].Replace("#", entry.soll.ToString()).Replace("§", this.store.hero.progress.ToString());
 
     }
 }

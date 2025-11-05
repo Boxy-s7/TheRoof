@@ -24,14 +24,20 @@ public class LevelManager : MonoBehaviour
    {
       this.register = GameRegister.Get();
       this.store = GameStore.Get();
+      progress = this.store.hero.progress;
       this.register.levelManager = this;
       this.istDict.Add(this.solls[store.hero.level].name, this.store.hero.progress);
-      this.discriptDict.Add("net", "Collect # stones with your net");
-      this.discriptDict.Add("brett", "Let # stones bounce on your plank");
-      this.discriptDict.Add("eimer", "Collect # stones with your bucket");
-      this.discriptDict.Add("zombie", "Collect # stones with your zombie");
-      this.discriptDict.Add("drone", "Collect # stones with your drone");
-      progress = this.store.hero.progress;
+      this.discriptDict.Add("net", "Collect # stones with your net §/#");
+      this.discriptDict.Add("brett", "Let # stones bounce on your plank §/#");
+      this.discriptDict.Add("eimer", "Collect # stones with your bucket §/#");
+      this.discriptDict.Add("zombie", "Collect # stones with your zombie §/#");
+      this.discriptDict.Add("drone", "Collect # stones with your drone §/#");
+      this.discriptDict.Add("nest", "Collect # eggs with your net §/#");
+      this.discriptDict.Add("1", "Let # stones bounce on your plank2 §/#");
+      this.discriptDict.Add("2", "Collect # stones with your bucket2 §/#");
+      this.discriptDict.Add("3", "Collect # stones with your zombie2 §/#");
+      this.discriptDict.Add("4", "Collect # stones with your drone2 §/#");
+      
       if (solls != null)
       {
       Debug.Log("solls exestiert");
@@ -46,6 +52,7 @@ public class LevelManager : MonoBehaviour
 
    public void LevelCheckUp(string name)
    {
+      
       int alt = istDict.GetValueOrDefault(name, 0);
       int neu = alt + 1;
       istDict[name] = neu;
@@ -62,6 +69,7 @@ public class LevelManager : MonoBehaviour
          }         
       }
       progress = this.store.hero.progress;
+      this.register.anzeige.missionUpdate();
    }
    public async void LevelUp()
    {

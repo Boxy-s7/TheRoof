@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
+    
+    public Register register;
     public AudioSource radio;
-    public string mode = "home";
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        register = GameRegister.Get();
+        register.radio = this;
+        radio.Play();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (mode)
-        {
-            case "home":
-                radio.Play();
-                break;
-            
-
-
-        }
+        
     }
-    
+    public void VolumenChanged()
+    {
+        radio.volume = register.settings.musicSliderVar / 100;
+    }
 }
