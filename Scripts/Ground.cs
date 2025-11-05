@@ -20,7 +20,7 @@ public class Ground : MonoBehaviour
     {
         
     
-        if (collision.gameObject.CompareTag("Stone"))
+        if (collision.gameObject.CompareTag("Stone" || collision.gameObject.CompareTag("Egg")))
         {
             Destroy(collision.gameObject);
         }

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 24161103957802319}
   - component: {fileID: 7535597343749825006}
   - component: {fileID: -7787408157263131184}
-  m_Layer: 0
+  - component: {fileID: -7910996762752350199}
+  m_Layer: 9
   m_Name: BirdPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_Sprite: {fileID: 21300000, guid: d1a075b4079d34c4a8936cd1966ac682, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,6 +120,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a2af3fdbef49f4182fa915d0ace2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frame: 0
+  fly:
+  - {fileID: 21300000, guid: 3bf0d97155ffd2147b4fc7550772627a, type: 3}
+  - {fileID: 21300000, guid: d1a075b4079d34c4a8936cd1966ac682, type: 3}
+  - {fileID: 21300000, guid: 951aabe5c1b9eb246982316ef636e7b4, type: 3}
+  - {fileID: 21300000, guid: 8a716c79c42678b4ca889640ed7a5b86, type: 3}
+  - {fileID: 21300000, guid: 140c865cbad9976458cc098c103de9eb, type: 3}
+  - {fileID: 21300000, guid: 10a350200f108924c9bdffd9710afa80, type: 3}
+  - {fileID: 21300000, guid: 97676bbf4b62b744a912c257c8a56ea0, type: 3}
+  eat:
+  - {fileID: 21300000, guid: 9a5aee8e5be183746bbcf06356ee661a, type: 3}
+  - {fileID: 21300000, guid: 4c2ba625bced3dd48897a7a8eaa102b3, type: 3}
+  - {fileID: 21300000, guid: 79106ad850db118459a8d69d6c234913, type: 3}
+  spawnSite: 0
+  store:
+    hero:
+      taler: 0
+      level: 0
+      progress: 0
+    stone:
+      talerProStein: 0
+      level: 0
+    net:
+      steinmenge: 0
+      maxSteinmenge: 0
+      level: 0
+    inventory:
+      bretters: []
+      eimers:
+        level: 0
+        count: 0
+        size: 0
+        eimers: []
+      zombie:
+        zombieLevel: 0
+      drone:
+        dronenLevel: 0
+        maxSteinmenge: 0
+        speed: 0
+        smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
   register:
     anzeige: {fileID: 0}
     market: {fileID: 0}
@@ -138,6 +183,53 @@ MonoBehaviour:
       dronenBody: {fileID: 0}
       dronenDetector: {fileID: 0}
     bird: {fileID: 0}
+    nest: {fileID: 0}
   mode: Find food
   target: {x: 0, y: 0, z: 0}
-  speedFactor: 1
+  speedFactor: 5
+  eggPrefab: {fileID: 5464083366979371537, guid: c400751e47846f3489dc6d02f6e2d179, type: 3}
+--- !u!61 &-7910996762752350199
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779328514464136501}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.61, y: 1.62}
+    newSize: {x: 1.61, y: 1.62}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.61, y: 1.62}
+  m_EdgeRadius: 0

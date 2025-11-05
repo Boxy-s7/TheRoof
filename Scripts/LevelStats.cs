@@ -104,9 +104,9 @@ public class LevelStats
     {
         0, 1, 1, 2, 2, 3, 3, 3, 0
     };
-    static float[] nestTasteFactor = new float[]
+    static int[] nestTasteFactor = new int[]
     {
-        0f, 1f, 1f, 2f, 2f, 3f, 3f, 3f, 0f
+        0, 1, 1, 2, 2, 3, 3, 3, 0
     };
 }
 
@@ -228,10 +228,10 @@ public class NestLevelStats
 {
     public int level;
     public int price;
-    public float taste;
+    public int taste;
     public int scent;
     public int bird;
-    public NestLevelStats(int level, int price, float taste, int scent, int bird)
+    public NestLevelStats(int level, int price, int taste, int scent, int bird)
     {
         this.taste = taste;
         this.level = level;

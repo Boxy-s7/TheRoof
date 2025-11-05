@@ -164,6 +164,6 @@ public class Drone
 public class Nest
 {
     public int nestLevel;
-    public float taste;
+    public int taste;
     public int scent;
 }

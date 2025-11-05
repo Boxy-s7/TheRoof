@@ -16854,7 +16854,7 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
   spawnPoint: {fileID: 0}
   nextSpawn: 0
-  SpawnCooldown: 2
+  SpawnCooldown: 1
   birds:
   - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
   - {fileID: 8779328514464136501, guid: b48d3d38f662b3845a046874643708d7, type: 3}
@@ -27927,6 +27927,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 759297079537096046, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
       propertyPath: m_Name
       value: Nest

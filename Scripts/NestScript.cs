@@ -9,7 +9,7 @@ public class NestScript : MonoBehaviour
     public GameObject prefabToSpawn; // Dein Prefab
     public Transform spawnPoint;     // Position, an der gespawnt wird
     public float nextSpawn;
-    public float SpawnCooldown = 2f;
+    public float SpawnCooldown = 30f;
     public List<GameObject> birds = new List<GameObject>();
     public Store store;
 
@@ -49,5 +49,6 @@ public class NestScript : MonoBehaviour
         GameObject prefabToSpawn = this.birds[this.store.inventory.nest.nestLevel];
         Instantiate(prefabToSpawn, neuePosition, Quaternion.identity);
         factor *= -1;
-    }
+    }
+    
 }
