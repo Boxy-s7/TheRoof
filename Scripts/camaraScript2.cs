@@ -2,45 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraScript2 : MonoBehaviour
+[RequireComponent(typeof(Camera))]
+public class PixelPerfectCameraScript : MonoBehaviour
 {
-    public int ScreenHight;
-    public int ScreenWidth;
-    public int targetWidth = 220;   // z. B. 320 Pixel
-    public int targetHeight = 130;  // z. B. 180 Pixel
+    public int targetWidth = 220;
+    public int targetHeight = 130;
     public float pixelsPerUnit = 16f;
 
     private Camera cam;
 
     void Start()
     {
-        cam = Camera.main;
+        cam = GetComponent<Camera>();
+        cam.orthographic = true;
         UpdateCameraSize();
-    }
-
-    void Update()
-    {
-        if (Screen.width != targetWidth || Screen.height != targetHeight)
-        {
-            UpdateCameraSize();
-        }
     }
 
     void UpdateCameraSize()
     {
-        float screenRatio = (float)Screen.width / Screen.height;
-        float targetRatio = (float)targetWidth / targetHeight;
-        ScreenHight = Screen.height;
-        ScreenWidth = Screen.width;
-        if (screenRatio >= targetRatio)
+        float targetAspect = (float)targetWidth / targetHeight;
+        float screenAspect = (float)Screen.width / Screen.height;
+
+        float orthographicSize = targetHeight / (2f * pixelsPerUnit);
+
+        if (screenAspect >= targetAspect)
         {
-            cam.orthographicSize = targetHeight / (2f * pixelsPerUnit);
+            // Bildschirm ist breiter → Höhe bleibt, Breite wird erweitert
+            cam.orthographicSize = orthographicSize;
         }
         else
         {
-            float differenceInSize = targetRatio / screenRatio;
-            cam.orthographicSize = targetHeight / (2f * pixelsPerUnit) * differenceInSize;
+            // Bildschirm ist schmaler → Höhe wird angepasst
+            float scale = targetAspect / screenAspect;
+            cam.orthographicSize = orthographicSize * scale;
+        }
+    }
+
+    void Update()
+    {
+        // Optional: Nur bei tatsächlicher Größenänderung neu berechnen
+        if (Screen.width != cam.pixelWidth || Screen.height != cam.pixelHeight)
+        {
+            UpdateCameraSize();
         }
     }
 }
-

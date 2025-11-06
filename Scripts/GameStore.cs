@@ -33,6 +33,8 @@ public static class GameStore
         store.inventory.drone.dronenLevel = 0;
         store.inventory.drone.speed = 0;
         store.inventory.drone.smartnis = 0;
+        store.storeSettings.musicVolume = 0;
+        store.storeSettings.effectVolume = 0;
         return store;
     }
 }

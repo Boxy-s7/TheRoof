@@ -7,7 +7,6 @@ public class NestScript : MonoBehaviour
     public bool isMoving = true;
     public Vector3 nestPos;
     public Register register;
-    
     public Transform spawnPoint;     // Position, an der gespawnt wird
     public float nextSpawn;
     public float SpawnCooldown;
@@ -43,6 +42,7 @@ public class NestScript : MonoBehaviour
             {
                 isMoving = false;
                 GetComponent<BoxCollider2D>().enabled = true;
+                gameObject.GetComponentInChildren<BoxCollider2D>().enabled = true;
                 this.register.market.BuySthStop();
                 this.store.inventory.nest.positionX = transform.position.x;
                 this.store.inventory.nest.positionY = transform.position.y;
@@ -54,16 +54,28 @@ public class NestScript : MonoBehaviour
 
 
 
+    public void Move()
+    {
+        this.isMoving = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+        foreach (BoxCollider2D col in gameObject.GetComponentsInChildren<BoxCollider2D>())
+    {
+    col.enabled = false;
+    }
 
+    }
     public int factor = 1;
     public void SpawnPrefab()
     {
-        float zufallsY = Random.Range(5f, 0f) * factor;
-        int richtung = Random.Range(-1f, 1f) > 0 ? 1 : -1;
-        Vector3 neuePosition = new Vector3(10 * richtung, zufallsY, transform.position.z);
-        GameObject prefabToSpawn = this.birds[this.store.inventory.nest.bird];
-        Instantiate(prefabToSpawn, neuePosition, Quaternion.identity);
-        factor *= -1;
+        if (!isMoving)
+        {
+            float zufallsY = Random.Range(5f, 0f) * factor;
+            int richtung = Random.Range(-1f, 1f) > 0 ? 1 : -1;
+            Vector3 neuePosition = new Vector3(10 * richtung, zufallsY, transform.position.z);
+            GameObject prefabToSpawn = this.birds[this.store.inventory.nest.bird];
+            Instantiate(prefabToSpawn, neuePosition, Quaternion.identity);
+            factor *= -1;
+        }
     }
     bool DetectPress()
     {

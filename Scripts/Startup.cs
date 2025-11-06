@@ -9,7 +9,6 @@ public class Startup : MonoBehaviour
 {
     public Store store;
     public Register register;
-
     public GameObject BrettPrefab;
     public GameObject EimerPrefab;
     public GameObject ZombiePrefab;

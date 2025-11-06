@@ -35,7 +35,7 @@ public class LevelStats
         net = new Dictionary<int, NetLevelStats>();
         for (int i = 0; i < 11; i++)
         {
-            net.Add(i, new NetLevelStats(i, (int)Math.Pow(i, 4), (int)(i * 5) + 3));
+            net.Add(i, new NetLevelStats(i, (int)Math.Pow(i, 4), (int)(i * 5) + 3, netStringList[i]));
         }
         
         brett= new Dictionary<int, BrettLevelStats>();
@@ -71,6 +71,20 @@ public class LevelStats
     static float[] talerProSteinFactor = new float[]
     {
          0f, 1.2f, 1.7f, 1.5f, 0.9f, 1.3f, 1f, 1.4f, 1.8f, 2.1f, 3.3f, 0
+    };
+    static string[] netStringList = new string[]
+    {
+        "Stone",
+        "Stone",
+        "Stone",
+        "Stone",
+        "Stone",
+        "Stone",
+        "Egg",
+        "Egg",
+        "Egg",
+        "Egg"
+
     };
     static float[] zombieNetFactor = new float[]
     {
@@ -142,12 +156,13 @@ public class NetLevelStats
     public int level;
     public int price;
     public int maxSteinmenge;
-    public NetLevelStats(int level, int price, int maxSteinmenge)
+    public string catchedObject;
+    public NetLevelStats(int level, int price, int maxSteinmenge, string catchedObject)
     {
         this.maxSteinmenge = maxSteinmenge;
         this.level = level;
         this.price = price;
-
+        this.catchedObject = catchedObject;
 
     }
 }

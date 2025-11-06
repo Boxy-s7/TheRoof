@@ -2,13 +2,16 @@ using System;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class Anzeige : MonoBehaviour
 {
     private Store store;
     public Register register;
-    
-    
+    public List<Sprite> test;
+    public Dictionary<string, Sprite> catchSymbols;
+    public GameObject catchSymbol;
     public TMP_InputField textMeshTaler;
     public TMP_InputField textMeshStein;
     public TMP_Text textMeshMission;
@@ -19,6 +22,9 @@ public class Anzeige : MonoBehaviour
         register = GameRegister.Get();
         textMeshMission.text = MissionFinder();
         register.anzeige = this;
+        catchSymbols = new();
+        catchSymbols.Add("Stone", test[0]);
+        catchSymbols.Add("Egg", test[1]);
     }
     public void missionUpdate()
     {
@@ -55,25 +61,17 @@ public class Anzeige : MonoBehaviour
             store.hero.taler -= kosten;
         }
     }
-    string[] missionTabelle = new string[]
-    {
-        " ",
-        "Collect 30 stones with your net",
-        "Let 10 stones bounce on your plank",
-        "Collect 10 stones with your buckets",
-        "Collect 30 stones with your zombie",
-        "Collect 100 stones with your drone",
-        " ",
-        " ",
-        " ",
-        " ",
-        " "
-    };
     public string MissionFinder()
     {
         Debug.Log(register.levelManager);
         LevelEntry entry = register.levelManager.solls[this.store.hero.level];
         return register.levelManager.discriptDict[entry.name].Replace("#", entry.soll.ToString()).Replace("§", this.store.hero.progress.ToString());
 
+    }
+    public void CatchSymbolSwitch(string key)
+    {
+        
+        catchSymbol.GetComponent<SpriteRenderer>().sprite = catchSymbols.GetValueOrDefault(key);
+        
     }
 }

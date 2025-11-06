@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class NetScript : MonoBehaviour
 {
-    
+
     // Start is called before the first frame update
-
-    private Store store;
+    public string levelCheckUp;
+    public string catchTag;
+    protected Store store;
     public Register register;
-
-    
-        private SpriteRenderer spriteRenderer;
-    public List<GameObject> stones = new List<GameObject> { };
+    public LevelStats levelStats;
+    protected SpriteRenderer spriteRenderer;
+    public List<GameObject> catchedObjects = new List<GameObject> { };
 
 
     void Start()
@@ -21,6 +21,7 @@ public class NetScript : MonoBehaviour
         this.store = GameStore.Get();
         this.register = GameRegister.Get();
         this.register.net = this;
+        catchTag = LevelStats.net[store.net.level].catchedObject;
     }
 
     // Update is called once per frame
@@ -36,34 +37,20 @@ public class NetScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Stone") && store.net.steinmenge < store.net.maxSteinmenge)
+        if (collision.gameObject.CompareTag(catchTag) && store.net.steinmenge < store.net.maxSteinmenge)
         {
-            
-            register.levelManager.LevelCheckUp("net");
-        
-            
-            collision.transform.SetParent(this.transform);
 
-            // Rigidbody2D einfrieren
-            var rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                rb.velocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-                rb.isKinematic = true;
-                this.stones.Add(collision.gameObject);
-            }
-            var col = collision.gameObject.GetComponent<Collider2D>();
-            if (col != null)
-            {
-                col.enabled = false;
-            }
+            register.levelManager.LevelCheckUp(levelCheckUp);
+
+
+            ConnectGamobjects(collision.gameObject);
 
             // Taler hinzufügen
             store.net.steinmenge += 1;
 
 
         }
+        
 
     }
 
@@ -100,16 +87,33 @@ public class NetScript : MonoBehaviour
     }
     public void ClearNet()
     {
-        for (int i = 0; i < stones.Count; i++)
+        for (int i = 0; i < catchedObjects.Count; i++)
         {
-            GameObject stone = stones[i];
+            GameObject stone = catchedObjects[i];
             Destroy(stone);
         }
-        stones.Clear();
+        catchedObjects.Clear();
 
 
     }
-    
+    public void ConnectGamobjects(GameObject collision)
+    {
+        collision.transform.SetParent(this.transform);
 
+            // Rigidbody2D einfrieren
+            var rb = collision.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.isKinematic = true;
+                this.catchedObjects.Add(collision);
+            }
+            var col = collision.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
+    }
 
 }

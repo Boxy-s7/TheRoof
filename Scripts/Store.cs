@@ -28,6 +28,7 @@ public class Store
         this.inventory.zombie = new Zombie();
         this.inventory.drone = new Drone();
         this.inventory.nest = new Nest();
+        this.storeSettings = new StoreSettings();
     }
 }
 
@@ -36,7 +37,6 @@ public class StoreSettings
 {
     public float effectVolume;
     public float musicVolume;
-    public float screenSize;
 
 
 
@@ -49,6 +49,7 @@ public class Hero
     public int taler;
     public int level;
     public int progress;
+    public int eggs;
 
 
 

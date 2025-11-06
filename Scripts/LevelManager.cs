@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
       this.discriptDict.Add("eimer", "Collect # stones with your bucket §/#");
       this.discriptDict.Add("zombie", "Collect # stones with your zombie §/#");
       this.discriptDict.Add("drone", "Collect # stones with your drone §/#");
-      this.discriptDict.Add("nest", "Collect # eggs with your net §/#");
+      this.discriptDict.Add("eggNet", "Collect # eggs with your net §/#");
       this.discriptDict.Add("1", "Let # stones bounce on your plank2 §/#");
       this.discriptDict.Add("2", "Collect # stones with your bucket2 §/#");
       this.discriptDict.Add("3", "Collect # stones with your zombie2 §/#");

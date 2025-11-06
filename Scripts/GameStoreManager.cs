@@ -93,6 +93,7 @@ public class GameStoreManager : MonoBehaviour
             register.drone.drone.Destroy();
             register.drone = new RegisterDrone();
         }
+        register.anzeige.missionUpdate();
         register.bretters.ForEach(brett => { brett.Destroy(); });
         register.bretters.Clear();
         register.eimers.ForEach(eimer => { eimer.Destroy(); });

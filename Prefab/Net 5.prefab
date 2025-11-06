@@ -143,7 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78df96f6c0e52f4fb6dff47fba6c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelCheckUp: eggNet
+  catchTag: Egg
   register:
+    radio: {fileID: 0}
+    settings: {fileID: 0}
+    anzeige: {fileID: 0}
     market: {fileID: 0}
     net: {fileID: 0}
     player: {fileID: 0}
@@ -151,6 +156,15 @@ MonoBehaviour:
     shop: {fileID: 0}
     inventory: {fileID: 0}
     gameStoreManager: {fileID: 0}
+    zombie: {fileID: 0}
+    ZombieNet: {fileID: 0}
+    levelManager: {fileID: 0}
     bretters: []
     eimers: []
-  stones: []
+    drone:
+      drone: {fileID: 0}
+      dronenBody: {fileID: 0}
+      dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
+  catchedObjects: []

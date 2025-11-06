@@ -208,7 +208,7 @@ public class ShopScript : MonoBehaviour
 
 
         }
-        this.netStats = LevelStats.net.GetValueOrDefault(level, new NetLevelStats(0, 0, 0));
+        this.netStats = LevelStats.net.GetValueOrDefault(level, new NetLevelStats(0, 0, 0, "Stone"));
         if (!clickedNet)
         {
             clickedNet = true;
@@ -256,6 +256,7 @@ public class ShopScript : MonoBehaviour
                 this.register.shopButtons.UpdateLevelNet(level);
                 register.player.ChangeNet(level);
                 Debug.Log("net level increased " + level);
+                this.register.anzeige.CatchSymbolSwitch(LevelStats.net[store.net.level].catchedObject);
             }
         }
     }

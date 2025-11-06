@@ -259,9 +259,9 @@ public class InventoryScript : MonoBehaviour
                 this.store.inventory.nest.taste = next.taste;
                 if (this.store.inventory.nest.nestLevel == 1)
                 {
-                    var p = Instantiate(NestPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                    
-
+                    movedItem = Instantiate(NestPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                    movedItem.GetComponent<NestScript>().Move();
+                    this.register.market.BuySthStart();
                     
                 }
                 

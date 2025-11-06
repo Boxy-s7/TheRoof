@@ -26,6 +26,8 @@ public class Settings : MonoBehaviour
 
     void Start()
     {
+        
+        this.store = GameStore.Get();
         register = GameRegister.Get();
         register.settings = this;
         musicSlider = musicSliderSettings.GetComponent<Slider>();
@@ -35,8 +37,15 @@ public class Settings : MonoBehaviour
     }
 
 
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
     public void OpenSettings()
     {
+        musicSlider.value = this.store.storeSettings.musicVolume;
+        effectSlider.value = this.store.storeSettings.effectVolume;
         settingsPanel.SetActive(true);
         pauseMenu.SetActive(false);
     }
