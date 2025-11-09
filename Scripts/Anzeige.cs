@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using Unity.VisualScripting;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 
 public class Anzeige : MonoBehaviour
 {
@@ -25,6 +25,7 @@ public class Anzeige : MonoBehaviour
         catchSymbols = new();
         catchSymbols.Add("Stone", test[0]);
         catchSymbols.Add("Egg", test[1]);
+        CatchSymbolSwitch(LevelStats.net[store.net.level].catchedObject);
     }
     public void missionUpdate()
     {
@@ -71,7 +72,7 @@ public class Anzeige : MonoBehaviour
     public void CatchSymbolSwitch(string key)
     {
         
-        catchSymbol.GetComponent<SpriteRenderer>().sprite = catchSymbols.GetValueOrDefault(key);
-        
+        catchSymbol.GetComponent<Image>().sprite = catchSymbols.GetValueOrDefault(key);
+        Debug.Log(key);
     }
 }

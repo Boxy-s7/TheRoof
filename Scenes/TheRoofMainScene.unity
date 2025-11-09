@@ -3630,7 +3630,7 @@ MonoBehaviour:
     nest: {fileID: 0}
   test:
   - {fileID: 21300000, guid: fd4726120cefc5e4aa2a4d4b9895050c, type: 3}
-  - {fileID: 21300000, guid: 43a4b404b0f470a479b9dd30f4e8ab4a, type: 3}
+  - {fileID: 21300000, guid: 8db224e533312e74d88c86ac62c60dff, type: 3}
   catchSymbol: {fileID: 978446076}
   textMeshTaler: {fileID: 308580356}
   textMeshStein: {fileID: 866126000}
@@ -20559,6 +20559,7 @@ MonoBehaviour:
   EimerPrefab: {fileID: 1625414464220674616, guid: 00f664f419336f04e81991ae7593a3fc, type: 3}
   ZombiePrefab: {fileID: 5249271735520522970, guid: bf01634c9a2e1a147a361cf135e5b958, type: 3}
   DronenPrefab: {fileID: 8255050587222464283, guid: 644d62f23653c3f4ba244d0621f12dd2, type: 3}
+  NestPrefab: {fileID: 5312980157375521743, guid: 0e71e6a54fc63eb418f1dca27256ff47, type: 3}
   shop: {fileID: 2143377208}
   movedItem: {fileID: 0}
 --- !u!1 &1533204960

@@ -13,6 +13,7 @@ public class Startup : MonoBehaviour
     public GameObject EimerPrefab;
     public GameObject ZombiePrefab;
     public GameObject DronenPrefab;
+    public GameObject NestPrefab;
     public GameObject shop;
 
 
@@ -55,6 +56,11 @@ public class Startup : MonoBehaviour
             Instantiate(DronenPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             this.store.inventory.drone.speed = LevelStats.drone[this.store.inventory.drone.dronenLevel].speed;
             this.store.inventory.drone.maxSteinmenge = LevelStats.drone[this.store.inventory.drone.dronenLevel].dronenNet;
+
+        }
+        if (this.store.inventory.nest.nestLevel >= 1)
+        {
+            Instantiate(NestPrefab, new Vector3(this.store.inventory.nest.positionX, this.store.inventory.nest.positionY, 0), Quaternion.identity);
 
         }
 

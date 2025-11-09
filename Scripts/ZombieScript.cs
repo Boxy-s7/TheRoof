@@ -72,6 +72,6 @@ public class ZombieScript : MonoBehaviour
     public void UpgradeZombie()
     {
         this.levelStats = LevelStats.zombie.GetValueOrDefault(this.store.inventory.zombie.zombieLevel);
-        xRightNetFactor = levelStats.zombieNet;
+        xRightNetFactor = levelStats.zombieNet * 2;
     }
 }

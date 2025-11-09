@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class NestScript : MonoBehaviour
 {
-    public bool isMoving = true;
+    public bool isMoving;
     public Vector3 nestPos;
+    public GameObject nestPosGameObject;
     public Register register;
     public Transform spawnPoint;     // Position, an der gespawnt wird
     public float nextSpawn;
@@ -21,10 +22,9 @@ public class NestScript : MonoBehaviour
     {
         this.store = GameStore.Get();
         register = GameRegister.Get();
-        nestPos = gameObject.transform.position;
         register.nest = this;
         this.nextSpawn = Time.time + this.SpawnCooldown;
-        
+        nestPos = nestPosGameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -46,6 +46,7 @@ public class NestScript : MonoBehaviour
                 this.register.market.BuySthStop();
                 this.store.inventory.nest.positionX = transform.position.x;
                 this.store.inventory.nest.positionY = transform.position.y;
+                nestPos = gameObject.transform.position;
             }
             transform.position = new Vector3(GetPosition().x, transform.position.y, 0);
         }

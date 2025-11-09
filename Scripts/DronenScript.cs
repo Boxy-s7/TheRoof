@@ -171,6 +171,9 @@ public class DronenScript : ItemScript
         
 
     }
-    
-    
+
+    public void TargetDestroyed()
+    {
+        this.Home();
+    }
 }

@@ -41,7 +41,7 @@ public class LevelStats
         brett= new Dictionary<int, BrettLevelStats>();
         for (int i = 0; i < 11; i++)
         {
-            brett.Add(i, new BrettLevelStats(i, (int)Math.Pow(i, 4) * 10));
+            brett.Add(i, new BrettLevelStats(i, (int)Math.Pow(i, 4) * 10, i <= 7));
         }
 
         eimer = new Dictionary<int, EimerLevelStats>();
@@ -79,7 +79,8 @@ public class LevelStats
         "Stone",
         "Stone",
         "Stone",
-        "Stone",
+        "Egg",
+        "Egg",
         "Egg",
         "Egg",
         "Egg",
@@ -171,13 +172,14 @@ public class BrettLevelStats
 {
     public int level;
     public int price;
+    public bool toHard;
     
-    public BrettLevelStats(int level, int price)
+    public BrettLevelStats(int level, int price, bool toHard)
     {
         
         this.level = level;
         this.price = price;
-        
+        this.toHard = toHard;
 
 
     }
@@ -253,5 +255,6 @@ public class NestLevelStats
         this.price = price;
         this.scent = scent;
         this.bird = bird;
+
     }
 }

@@ -42,8 +42,9 @@ public class DronenBodyScript : ItemScript
             // Taler hinzufügen
             steinmenge += 1;
             register.levelManager.LevelCheckUp("drone");
-        
+
             this.stones.Add(collision.gameObject);
+            collision.gameObject.GetComponent<SteinScript>().Catched();
             if (steinmenge == store.inventory.drone.maxSteinmenge)
             {
                 register.drone.drone.Full();

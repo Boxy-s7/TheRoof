@@ -135,6 +135,11 @@ public class BrettScript : ItemScript
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == ("Egg") && LevelStats.brett[store.inventory.bretters.Count].toHard == true)
+        {
+            Destroy(collision.gameObject);
+        }
+        else
         {
             register.levelManager.LevelCheckUp("brett");
         }

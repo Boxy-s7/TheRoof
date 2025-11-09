@@ -8,6 +8,7 @@ public class SteinScript : MonoBehaviour
     
     private static int nextId = 0;
     private int id = SteinScript.nextId++;
+    public bool isDroneTarget;
 
     void Start()
     {
@@ -23,11 +24,20 @@ public class SteinScript : MonoBehaviour
 
     public void Warning()
     {
+        isDroneTarget = true;
+    }
+
+    public void Catched()
+    {
+        isDroneTarget = false;
     }
     
     void OnDestroy()
     {
-
+        if (isDroneTarget)
+        {
+            GameRegister.Get().drone.drone.TargetDestroyed();
+        }
     }
 
 }

@@ -17,6 +17,7 @@ public class BirdScript : MonoBehaviour
     public String mode = "Find food";
     public Vector3 target;
     public float speedFactor = 1;
+    public float pickFactor;
     public GameObject eggPrefab;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,6 @@ public class BirdScript : MonoBehaviour
         register = GameRegister.Get();
         Debug.Log(register.nest.nestPos);
         this.register.bird = this;
-        target = register.nest.nestPos;
         if (gameObject.transform.position.x > 0)
         {
             spawnSite = -1;
@@ -37,6 +37,7 @@ public class BirdScript : MonoBehaviour
             spawnSite = 1;
             transform.Rotate(new Vector3(0, 180, 0));
         }
+        target = new(register.nest.nestPos.x + spawnSite * pickFactor, register.nest.nestPos.y, register.nest.nestPos.z);
     }
 
     // Update is called once per frame
