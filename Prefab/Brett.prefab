@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8195129571843067804}
   - component: {fileID: 522123704476150108}
   - component: {fileID: 618994159330187465}
+  - component: {fileID: -8321911020260053070}
   m_Layer: 7
   m_Name: Brett
   m_TagString: Untagged
@@ -100,9 +101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   store:
+    storeSettings:
+      effectVolume: 0
+      musicVolume: 0
     hero:
       taler: 0
       level: 0
+      progress: 0
+      eggs: 0
     stone:
       talerProStein: 0
       level: 0
@@ -112,8 +118,34 @@ MonoBehaviour:
       level: 0
     inventory:
       bretters: []
-      eimers: []
+      eimers:
+        level: 0
+        count: 0
+        size: 0
+        eimers: []
+      zombie:
+        zombieLevel: 0
+      drone:
+        dronenLevel: 0
+        maxSteinmenge: 0
+        speed: 0
+        smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
+        bird: 0
+        positionX: 0
+        positionY: 0
+      pfanens:
+        level: 0
+        count: 0
+        size: 0
+        pfanen: []
   register:
+    radio: {fileID: 0}
+    settings: {fileID: 0}
+    anzeige: {fileID: 0}
     market: {fileID: 0}
     net: {fileID: 0}
     player: {fileID: 0}
@@ -121,8 +153,19 @@ MonoBehaviour:
     shop: {fileID: 0}
     inventory: {fileID: 0}
     gameStoreManager: {fileID: 0}
+    zombie: {fileID: 0}
+    ZombieNet: {fileID: 0}
+    levelManager: {fileID: 0}
     bretters: []
     eimers: []
+    pfanen: []
+    drone:
+      drone: {fileID: 0}
+      dronenBody: {fileID: 0}
+      dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
+  BrokenEggPrefab: {fileID: 1787913303108860666, guid: 1e67ea467e8312542ba352adaf3161a8, type: 3}
   isMoving: 0
   isRotating: 0
   lastX: 0
@@ -198,3 +241,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.95, y: 0.05}
   m_EdgeRadius: 0
+--- !u!114 &-8321911020260053070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5189123523840907092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f486a2395fc87049a79e4f0d7878c48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

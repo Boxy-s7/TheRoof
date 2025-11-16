@@ -7,74 +7,58 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 
-public class BrettScript : ItemScript
+public class PfanenScript : ItemScript
 {
-    public GameObject BrokenEggPrefab;
-    public override string ItemType()
-    {
-        return "Brett";
-    }
-
     public bool isMoving = false;
+    public float eimerX = 0.492f;
 
     public bool isRotating = false;
     public float lastX;
+
+
     // Start is called before the first frame update
+    public override string ItemType()
+    {
+        return "Pfane";
+    }
+
     public override void Register()
     {
-        this.register.bretters.Add(this);
-        Debug.Log("brett start" + transform.rotation.z);   
+        this.register.pfanen.Add(this);
+        UpgradePfane();
+
     }
 
-
-    public void Move()
+    public void UpgradePfane()
     {
-        isMoving = true;
-        GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.transform.localScale = new Vector3(store.inventory.pfanens.size * eimerX, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+        
 
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
         if (isMoving)
         {
             if (DetectPress())
             {
-                isRotating = true;
                 isMoving = false;
-            }
-            transform.position = GetPosition();
-        }
-        else if (isRotating)
-        {
-            if (DetectPress())
-            {
-                isRotating = false;
-                
                 GetComponent<BoxCollider2D>().enabled = true;
                 this.register.market.BuySthStop();
-                this.store.inventory.bretters.Add(new Brett(transform.position.x, transform.position.y, transform.eulerAngles.z));
-                Debug.Log("new brett added" + this.store.inventory.bretters.Count);
+                this.store.inventory.pfanens.pfanen.Add(new Pfanen(transform.position.x, transform.position.y));
             }
-            else
-            {
-                var x = GetPosition().x;
-
-                transform.Rotate(0, 0, (lastX - x) * 10);
-                lastX = x;
-
-            }
-            
-
-
+            transform.position = new Vector3(GetPosition().x, transform.position.y, 0);
         }
-    }
-    public void LevelUp()
-    {
-        gameObject.GetComponent<Bounceble>().brettEggOk = LevelStats.brett[store.hero.level].toHard;
-    }
 
+    }
+    
+    public void Move()
+    {
+        this.isMoving = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
     private Vector3 GetPosition()
     {
         // Mausposition von Bildschirm in Welt umrechnen
@@ -138,10 +122,21 @@ public class BrettScript : ItemScript
         }
         return false;
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.CompareTag("Egg"))
         {
-            register.levelManager.LevelCheckUp("brett");
+            store.hero.taler += store.stone.talerProStein;
+            collision.transform.SetParent(this.transform);
+            register.levelManager.LevelCheckUp("pfane");
+    
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
+        
+
+        }
+
     }
 }

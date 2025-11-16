@@ -22,14 +22,16 @@ public class Register
 
     public List<BrettScript> bretters;
     public List<EimerScript> eimers;
+    public List<PfanenScript> pfanen;
     public RegisterDrone drone;
     public BirdScript bird;
     public NestScript nest;
     public Register()
     {
-        this.bretters = new List<BrettScript>();
-        this.eimers = new List<EimerScript>();
-        this.drone = new RegisterDrone();
+        this.bretters = new();
+        this.eimers = new();
+        this.drone = new();
+        this.pfanen = new();
     }
 
 

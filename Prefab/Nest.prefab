@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5075942858273767366}
   - component: {fileID: 565639771649208885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: NestFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696357009746223702}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 759297079537096046}
   - component: {fileID: -6500437464017040406}
   - component: {fileID: 5413650315631171327}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Nest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,6 +235,7 @@ MonoBehaviour:
     levelManager: {fileID: 0}
     bretters: []
     eimers: []
+    pfanen: []
     drone:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}
@@ -291,6 +292,11 @@ MonoBehaviour:
         bird: 0
         positionX: 0
         positionY: 0
+      pfanens:
+        level: 0
+        count: 0
+        size: 0
+        pfanen: []
   factor: 1
 --- !u!61 &5413650315631171327
 BoxCollider2D:
@@ -351,7 +357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5189123523840907092, guid: 2eb3cdaf550a82b4287d7b39ff253893, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8135477512506521379, guid: 2eb3cdaf550a82b4287d7b39ff253893, type: 3}
       propertyPath: m_LocalScale.y

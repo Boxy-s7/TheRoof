@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 
 public class EimerScript : ItemScript
 {
+    public GameObject BrokenEggPrefab;
     public bool isMoving = false;
     public float eimerX = 0.3492f;
 
@@ -125,6 +126,7 @@ public class EimerScript : ItemScript
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Stone"))
         {
             store.hero.taler += store.stone.talerProStein;

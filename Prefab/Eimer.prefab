@@ -144,9 +144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   store:
+    storeSettings:
+      effectVolume: 0
+      musicVolume: 0
     hero:
       taler: 0
       level: 0
+      progress: 0
+      eggs: 0
     stone:
       talerProStein: 0
       level: 0
@@ -156,8 +161,34 @@ MonoBehaviour:
       level: 0
     inventory:
       bretters: []
-      eimers: []
+      eimers:
+        level: 0
+        count: 0
+        size: 0
+        eimers: []
+      zombie:
+        zombieLevel: 0
+      drone:
+        dronenLevel: 0
+        maxSteinmenge: 0
+        speed: 0
+        smartnis: 0
+      nest:
+        nestLevel: 0
+        taste: 0
+        scent: 0
+        bird: 0
+        positionX: 0
+        positionY: 0
+      pfanens:
+        level: 0
+        count: 0
+        size: 0
+        pfanen: []
   register:
+    radio: {fileID: 0}
+    settings: {fileID: 0}
+    anzeige: {fileID: 0}
     market: {fileID: 0}
     net: {fileID: 0}
     player: {fileID: 0}
@@ -165,8 +196,20 @@ MonoBehaviour:
     shop: {fileID: 0}
     inventory: {fileID: 0}
     gameStoreManager: {fileID: 0}
+    zombie: {fileID: 0}
+    ZombieNet: {fileID: 0}
+    levelManager: {fileID: 0}
     bretters: []
     eimers: []
+    pfanen: []
+    drone:
+      drone: {fileID: 0}
+      dronenBody: {fileID: 0}
+      dronenDetector: {fileID: 0}
+    bird: {fileID: 0}
+    nest: {fileID: 0}
+  BrokenEggPrefab: {fileID: 1787913303108860666, guid: 1e67ea467e8312542ba352adaf3161a8, type: 3}
   isMoving: 0
+  eimerX: 0.3492
   isRotating: 0
   lastX: 0

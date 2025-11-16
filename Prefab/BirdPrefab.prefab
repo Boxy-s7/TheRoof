@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7910996762752350199}
   m_Layer: 9
   m_Name: BirdPrefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,6 +171,11 @@ MonoBehaviour:
         bird: 0
         positionX: 0
         positionY: 0
+      pfanens:
+        level: 0
+        count: 0
+        size: 0
+        pfanen: []
   register:
     radio: {fileID: 0}
     settings: {fileID: 0}
@@ -187,6 +192,7 @@ MonoBehaviour:
     levelManager: {fileID: 0}
     bretters: []
     eimers: []
+    pfanen: []
     drone:
       drone: {fileID: 0}
       dronenBody: {fileID: 0}

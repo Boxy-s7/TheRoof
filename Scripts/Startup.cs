@@ -14,6 +14,7 @@ public class Startup : MonoBehaviour
     public GameObject ZombiePrefab;
     public GameObject DronenPrefab;
     public GameObject NestPrefab;
+    public GameObject PfannenPrefab;
     public GameObject shop;
 
 
@@ -40,7 +41,6 @@ public class Startup : MonoBehaviour
         });
         this.store.inventory.eimers.eimers.ForEach((Eimer eimer) =>
         {
-            Debug.Log("eimer create");
             GameObject eimerObj = Instantiate(EimerPrefab, new Vector3(eimer.positionX, eimer.positionY, 0), Quaternion.identity);
             
 
@@ -63,6 +63,12 @@ public class Startup : MonoBehaviour
             Instantiate(NestPrefab, new Vector3(this.store.inventory.nest.positionX, this.store.inventory.nest.positionY, 0), Quaternion.identity);
 
         }
+        this.store.inventory.pfanens.pfanen.ForEach((Pfanen pfanne) =>
+        {
+            GameObject pfannenObj = Instantiate(PfannenPrefab, new Vector3(pfanne.positionX, pfanne.positionY, 0), Quaternion.identity);
+            
+
+        });
 
 
     }

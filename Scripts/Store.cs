@@ -25,6 +25,7 @@ public class Store
         this.inventory = new Inventory();
         this.inventory.bretters = new List<Brett>();
         this.inventory.eimers = new Eimers(0, 0, 0);
+        this.inventory.pfanens = new Pfanens(0, 0, 0);
         this.inventory.zombie = new Zombie();
         this.inventory.drone = new Drone();
         this.inventory.nest = new Nest();
@@ -98,7 +99,7 @@ public class Inventory
     public Zombie zombie;
     public Drone drone;
     public Nest nest;
-
+    public Pfanens pfanens;
 
 }
 
@@ -183,4 +184,40 @@ public class Nest
     public float positionX;
     public float positionY;
 }
+[System.Serializable]
+public class Pfanens
+{
+    public int level;
+    public int count;
+    public float size;
+    public List<Pfanen> pfanen;
+    public Pfanens(int count, float size, int level)
+    {
+        this.level = level;
+        this.count = count;
+        this.size = size;
+        this.pfanen = new List<Pfanen>();
+    }
+}
+[System.Serializable]
+public class Pfanen
+{
+    public float positionX;
+    public float positionY;
+    
 
+
+
+    public Pfanen(float positionX, float positionY)
+    {
+        Debug.Log("new eimer");
+
+        this.positionX = positionX;
+        this.positionY = positionY;
+
+
+    }
+
+    
+
+}

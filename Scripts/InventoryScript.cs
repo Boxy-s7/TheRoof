@@ -16,6 +16,8 @@ public class InventoryScript : MonoBehaviour
     public GameObject ZombiePrefab;
     public GameObject DronenPrefab;
     public GameObject NestPrefab;
+    public GameObject PfanenPrefab;
+
     public float floorY;
     public int clicked;
     public TMP_InputField textMeshInventoryStats1;
@@ -70,9 +72,14 @@ public class InventoryScript : MonoBehaviour
             {
 
                 movedItem = Instantiate(BrettPrefab, GetPosition(), Quaternion.identity);
+                this.register.bretters.ForEach(brett =>
+                {
+                    brett.LevelUp();
+                });
                 this.register.market.BuySthStart();
                 this.store.hero.taler -= next.price;
                 movedItem.GetComponent<BrettScript>().Move();
+                
             } }
         else
         {
@@ -278,7 +285,57 @@ public class InventoryScript : MonoBehaviour
 
 
     }
-    
+    public void BuyPfane()
+    {
+        var anzahlPfanneS = this.store.inventory.pfanens.count;
+        var anzahlPfanneI = this.store.inventory.pfanens.pfanen.Count;
+        EimerLevelStats current = LevelStats.eimer[this.store.inventory.eimers.level];
+        EimerLevelStats next = LevelStats.eimer[current.level + 1];
+        if (clicked == 6)
+        {
+            clicked = 0;
+            statsPanelInventory.SetActive(false);
+            
+
+            if (next.price> this.store.hero.taler)
+            {
+                Debug.Log("zu wenig Geld! ");
+            }
+            else if (current.level >= this.store.hero.level)
+            {
+                Debug.Log("zu wenig Hero level! ");
+            }
+
+
+            else
+            {
+               
+                if (current.count != next.count)
+                {
+                    movedItem = Instantiate(PfanenPrefab, GetFloorPosition(), Quaternion.identity);
+                    this.register.market.BuySthStart();
+                    this.store.hero.taler -= next.price;
+                    movedItem.GetComponent<PfanenScript>().Move();
+                    
+                }
+                this.store.inventory.eimers.level++;
+                store.inventory.pfanens.size = next.size;
+                store.inventory.pfanens.count = next.count;
+                register.pfanen.ForEach((PfanenScript pfanen)  => pfanen.UpgradePfane());
+                
+            }
+        }
+        else
+        {
+            clicked = 6;
+            statsPanelInventory.SetActive(true);
+            textMeshInventoryStats1.text = $"Description: A Bucket that you can placedown to automaticly collect your stones";
+            textMeshInventoryStats2.text = $"next level price: {next.price}";
+            textMeshInventoryStats3.text = $"current level: {current.level}";
+        }
+
+
+    }
 
 
 

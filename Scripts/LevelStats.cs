@@ -17,6 +17,7 @@ public class LevelStats
     public static Dictionary<int, ZombieLevelStats> zombie;
     public static Dictionary<int, DroneLevelStats> drone;
     public static Dictionary<int, NestLevelStats> nest;
+    public static Dictionary<int, PfaneLevelStats> pfane;
     public static void Init()
     {
 
@@ -65,6 +66,11 @@ public class LevelStats
         for (int i = 0; i < 9; i++)
         {
             nest.Add(i, new NestLevelStats(i, (int)Math.Pow(i, 4) * 50, nestTasteFactor[i], nestScentFactor[i], i));
+        }
+        pfane = new Dictionary<int, PfaneLevelStats>();
+        for (int i = 0; i < 11; i++)
+        {
+            pfane.Add(i, new PfaneLevelStats(i, (int)Math.Pow(i, 4) * 60, eimerSizeTabelle[i], eimerCountTabelle[i]));
         }
     }
 
@@ -255,6 +261,23 @@ public class NestLevelStats
         this.price = price;
         this.scent = scent;
         this.bird = bird;
+
+    }
+}
+public class PfaneLevelStats
+{
+    public int level;
+    public int price;
+    public float size;
+    public int count;
+    public PfaneLevelStats(int level, int price, float size, int count)
+    {
+        
+        this.level = level;
+        this.price = price;
+        this.size = size;
+        this.count = count;
+
 
     }
 }
