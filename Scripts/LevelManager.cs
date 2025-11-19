@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
       
       if (solls != null)
       {
-      Debug.Log("solls exestiert");
+      
       }
       
    }

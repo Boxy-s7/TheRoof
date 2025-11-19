@@ -250,6 +250,7 @@ public class ShopScript : MonoBehaviour
 
             else
             {
+                this.store.net.catchedObject = LevelStats.net[store.net.level].catchedObject;
                 this.store.net.level = netStats.level;
                 this.store.net.maxSteinmenge = netStats.maxSteinmenge;
                 this.store.hero.taler -= netStats.price;

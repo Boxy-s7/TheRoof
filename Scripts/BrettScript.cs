@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
 
 public class BrettScript : ItemScript
 {
+    public int time;
     public GameObject BrokenEggPrefab;
     public override string ItemType()
     {
@@ -22,9 +23,12 @@ public class BrettScript : ItemScript
     // Start is called before the first frame update
     public override void Register()
     {
-        this.register.bretters.Add(this);
-        Debug.Log("brett start" + transform.rotation.z);   
+        register.bretters.Add(this);
+        Debug.Log("brett start" + transform.rotation.z);  
+        gameObject.GetComponent<Bounceble>().brettEggOk = !LevelStats.brett[store.inventory.bretters.Count].toHard;
+        Debug.Log(LevelStats.brett[store.inventory.bretters.Count].toHard); 
     }
+    
 
 
     public void Move()
@@ -53,8 +57,8 @@ public class BrettScript : ItemScript
                 isRotating = false;
                 
                 GetComponent<BoxCollider2D>().enabled = true;
-                this.register.market.BuySthStop();
-                this.store.inventory.bretters.Add(new Brett(transform.position.x, transform.position.y, transform.eulerAngles.z));
+                register.market.BuySthStop();
+                store.inventory.bretters.Add(new Brett(transform.position.x, transform.position.y, transform.eulerAngles.z));
                 Debug.Log("new brett added" + this.store.inventory.bretters.Count);
             }
             else
@@ -72,7 +76,7 @@ public class BrettScript : ItemScript
     }
     public void LevelUp()
     {
-        gameObject.GetComponent<Bounceble>().brettEggOk = LevelStats.brett[store.hero.level].toHard;
+        gameObject.GetComponent<Bounceble>().brettEggOk = LevelStats.brett[store.inventory.bretters.Count].toHard;
     }
 
     private Vector3 GetPosition()
@@ -140,8 +144,20 @@ public class BrettScript : ItemScript
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        
+    }
+    public void Collision()
+    {
+
+        time++;
+        if (register.levelManager == null)
+        {
+            Collision();
+        }
+        else
         {
             register.levelManager.LevelCheckUp("brett");
         }
+       
     }
 }

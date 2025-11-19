@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Data;
 
 public class NestScript : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class NestScript : MonoBehaviour
         this.store = GameStore.Get();
         register = GameRegister.Get();
         register.nest = this;
-        this.nextSpawn = Time.time + this.SpawnCooldown;
+        this.nextSpawn = Time.time + this.SpawnCooldown / store.inventory.nest.scent;
         nestPos = nestPosGameObject.transform.position;
     }
 
@@ -32,7 +33,7 @@ public class NestScript : MonoBehaviour
     {
         if (Time.time >= this.nextSpawn)
         {
-            this.nextSpawn = Time.time + this.SpawnCooldown;
+            this.nextSpawn = Time.time + this.SpawnCooldown / store.inventory.nest.scent;
             this.SpawnPrefab();
 
         }
@@ -52,8 +53,7 @@ public class NestScript : MonoBehaviour
         }
 
     }
-
-
+    
 
     public void Move()
     {

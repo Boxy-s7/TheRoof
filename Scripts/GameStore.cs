@@ -19,6 +19,7 @@ public static class GameStore
     {
         store.hero.level = 0;
         store.hero.taler = 100;
+        store.hero.progress = 0;
         store.stone.talerProStein = 1;
         store.net.steinmenge = 0;
         store.net.maxSteinmenge = 3;
@@ -33,6 +34,12 @@ public static class GameStore
         store.inventory.drone.dronenLevel = 0;
         store.inventory.drone.speed = 0;
         store.inventory.drone.smartnis = 0;
+        store.inventory.nest.nestLevel = 0;
+        store.inventory.nest.taste = 0;
+        store.inventory.nest.scent = 0;
+        store.inventory.nest.bird = 0;
+        store.inventory.nest.positionX = 0;
+        store.inventory.nest.positionY = 0;
         store.storeSettings.musicVolume = 0;
         store.storeSettings.effectVolume = 0;
         return store;

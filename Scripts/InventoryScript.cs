@@ -26,6 +26,7 @@ public class InventoryScript : MonoBehaviour
     public GameObject statsPanelInventory;
     public ZombieLevelStats zombieLevelStats;
     public DroneLevelStats droneLevelStats;
+    public NestLevelStats nestLevelStats;
     // Start is called before the first frame update
     public GameObject movedItem;
     
@@ -264,6 +265,8 @@ public class InventoryScript : MonoBehaviour
                 this.store.hero.taler -= next.price;
                 this.store.inventory.nest.scent = next.scent;
                 this.store.inventory.nest.taste = next.taste;
+                this.store.inventory.nest.bird = next.bird - 1;
+                this.store.inventory.nest.scent = next.scent;
                 if (this.store.inventory.nest.nestLevel == 1)
                 {
                     movedItem = Instantiate(NestPrefab, new Vector3(0, 0, 0), Quaternion.identity);

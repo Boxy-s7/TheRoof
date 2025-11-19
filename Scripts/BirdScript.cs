@@ -95,7 +95,7 @@ public class BirdScript : MonoBehaviour
     }
     public async void Eat()
     {
-        await Task.Delay(this.store.inventory.nest.taste * 1000);
+        await Task.Delay((this.store.inventory.nest.taste * 1000) + 1);
         mode = "Fly home";
         target = new Vector3(10 * spawnSite, UnityEngine.Random.Range(5f, 0f));
     }

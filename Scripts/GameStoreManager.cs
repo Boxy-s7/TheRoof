@@ -98,6 +98,9 @@ public class GameStoreManager : MonoBehaviour
         register.bretters.Clear();
         register.eimers.ForEach(eimer => { eimer.Destroy(); });
         register.eimers.Clear();
+        Destroy(register.nest.gameObject);
+        register.eimers.ForEach(Pfanen => { Pfanen.Destroy(); });
+        register.pfanen.Clear();
         this.storeLoaded = true;
         Debug.Log("reset ende");
     }

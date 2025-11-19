@@ -86,7 +86,7 @@ public class Net
     public int steinmenge;
     public int maxSteinmenge;
     public int level;
-
+    public string catchedObject;
 
 
 }
